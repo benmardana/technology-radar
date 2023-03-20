@@ -1,0 +1,5 @@
+<svg viewBox="-16.5 -16.5 33 33" xmlns="http://www.w3.org/2000/svg">
+  <circle style="fill: #6b9e78;" rx="11" cy="0" cx="0" r="11" />
+  <text x="0" y="1" dominant-baseline="middle" text-anchor="middle" font-size="16px">12</text>
+  <circle style="fill: none; stroke: #6b9e78; stroke-width: 3px;" cx="0" cy="0" rx="16.15" r="15" />
+</svg>

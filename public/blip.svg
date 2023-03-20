@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <g transform="scale(0.7352941176470589) translate(45.359985508963675, 200.2028447698531)" fill="#6B9E78"
+    class="blip-link" id="blip-link-202210009" opacity="1">
+    <path opacity="1" transform="scale(1.25) translate(-3.5, -3.5)"
+      d="M18 36C8.07 36 0 27.93 0 18S8.07 0 18 0c9.92 0 18 8.07 18 18S27.93 36 18 36zM18 3.14C9.81 3.14 3.14 9.81 3.14 18S9.81 32.86 18 32.86S32.86 26.19 32.86 18S26.19 3.14 18 3.14z">
+    </path>
+    <circle r="15" cx="18" cy="18"></circle><text x="18" y="24" font-size="16px" font-style="normal" font-weight="bold"
+      fill="white" style="text-anchor: middle;">65</text>
+  </g>
+
+</svg>
