@@ -1,4 +1,4 @@
-export type QuadrantLabel = 'tl' | 'tr' | 'bl' | 'br';
+export type QuadrantLabel = 'techniques' | 'tools' | 'platforms' | 'frameworks';
 
 export const BLIP_STATUS = ['unchanged', 'new', 'movedIn', 'movedOut'] as const;
 

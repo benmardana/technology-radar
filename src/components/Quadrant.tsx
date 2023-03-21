@@ -51,9 +51,12 @@ export const Quadrant = ({ label }: { label: QuadrantLabel }) => {
     >
       <div id={label} className="quadrant">
         <img src={quadrant} alt="" className={`backdrop ${label}`} />
-        <button onClick={addBlip} className={`addBlip ${label}`}>
-          Add blip
-        </button>
+        <div className={`label ${label}`}>
+          <h2>{label}</h2>
+          <button className="fancy-button" onClick={addBlip}>
+            Add blip
+          </button>
+        </div>
         {blips.length
           ? blips.map(({ id, position, touched, status }) => (
               <Blip

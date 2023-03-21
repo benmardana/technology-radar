@@ -103,49 +103,85 @@ button {
   position: absolute;
 }
 
-.quadrant .addBlip {
+.quadrant .label {
   position: absolute;
-  margin: 5px;
+  margin: 10px;
+  display: flex;
+  text-transform: capitalize;
 }
 
-.quadrant .addBlip.tl {
+.quadrant .label.techniques {
   top: 0;
   left: 0;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.quadrant .addBlip.tr {
+.quadrant .label.tools {
   top: 0;
   right: 0;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
-.quadrant .addBlip.bl {
+.quadrant .label.platforms {
   bottom: 0;
   left: 0;
+  flex-direction: column-reverse;
+  align-items: flex-start;
 }
 
-.quadrant .addBlip.br {
+.quadrant .label.frameworks {
   bottom: 0;
   right: 0;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+}
+
+.fancy-button {
+  display: inline-block;
+  outline: 0;
+  cursor: pointer;
+  padding: 5px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  vertical-align: middle;
+  border: 1px solid;
+  border-radius: 6px;
+  color: #24292e;
+  background-color: #fafbfc;
+  border-color: #1b1f2326;
+  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px 0px,
+    rgba(255, 255, 255, 0.25) 0px 1px 0px 0px inset;
+  transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  transition-property: color, background-color, border-color;
+}
+
+.fancy-button:hover {
+  background-color: #f3f4f6;
+  border-color: #1b1f2326;
+  transition-duration: 0.1s;
 }
 
 .quadrant .backdrop {
-  height: 514px;
-  width: 514px;
+  height: 420px;
+  width: 420px;
 }
 
-.quadrant .backdrop.tl {
+.quadrant .backdrop.techniques {
   rotate: y -180deg;
 }
 
-.quadrant .backdrop.tr {
+.quadrant .backdrop.tools {
   rotate: 0;
 }
 
-.quadrant .backdrop.bl {
+.quadrant .backdrop.platforms {
   rotate: 180deg;
 }
 
-.quadrant .backdrop.br {
+.quadrant .backdrop.frameworks {
   rotate: x 180deg;
 }
 

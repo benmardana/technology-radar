@@ -20,10 +20,17 @@ const BLIP_ICON_MAP = {
 };
 
 const initialPositionMap = {
-  tl: { top: '40px', left: '5px', bottom: 'auto', right: 'auto' },
-  tr: { top: '40px', left: 'auto', bottom: 'auto', right: '5px' },
-  bl: { top: 'auto', left: '5px', bottom: '40px', right: 'auto' },
-  br: { top: 'auto', left: 'auto', bottom: '40px', right: '5px' },
+  techniques: { top: '10%', left: '22%', bottom: 'auto', right: 'auto' },
+  tools: { top: '10%', left: 'auto', bottom: 'auto', right: '22%' },
+  platforms: { top: 'auto', left: '22%', bottom: '10%', right: 'auto' },
+  frameworks: { top: 'auto', left: 'auto', bottom: '10%', right: '22%' },
+};
+
+const colorMap = {
+  techniques: '#47A1AD',
+  tools: '#6b9e78',
+  platforms: '#CC850A',
+  frameworks: '#F2617A',
 };
 
 export const Blip = ({
@@ -54,9 +61,14 @@ export const Blip = ({
 
   return (
     <button
-      ref={setNodeRef}
       className="blip"
-      style={{ ...liveStyle, ...staticStyle, ...initialStyle }}
+      ref={setNodeRef}
+      style={{
+        ...liveStyle,
+        ...staticStyle,
+        ...initialStyle,
+        color: colorMap[label],
+      }}
       onClick={onClick}
       {...listeners}
       {...attributes}

@@ -7,7 +7,7 @@ export const New = ({ children }: { children: React.ReactNode }) => (
     viewBox="-16.5 -16.5 33 33"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <circle style={{ fill: '#6b9e78' }} rx="11" cy="0" cx="0" r="11" />
+    <circle style={{ fill: 'currentColor' }} rx="11" cy="0" cx="0" r="11" />
     <text
       x="0"
       y="1"
@@ -20,7 +20,7 @@ export const New = ({ children }: { children: React.ReactNode }) => (
       {children}
     </text>
     <circle
-      style={{ fill: 'none', stroke: '#6b9e78', strokeWidth: '3px' }}
+      style={{ fill: 'none', stroke: 'currentColor', strokeWidth: '3px' }}
       cx="0"
       cy="0"
       rx="16.15"
@@ -36,7 +36,7 @@ export const Unchanged = ({ children }: { children: React.ReactNode }) => (
     viewBox="-16.5 -16.5 33 33"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <circle style={{ fill: '#6b9e78' }} rx="11" cy="0" cx="0" r="11" />
+    <circle style={{ fill: 'currentColor' }} rx="11" cy="0" cx="0" r="11" />
     <text
       x="0"
       y="1"
@@ -52,10 +52,10 @@ export const Unchanged = ({ children }: { children: React.ReactNode }) => (
 );
 
 const rotationMap = {
-  tl: (out?: boolean) => (out ? 180 : 0),
-  tr: (out?: boolean) => (out ? 270 : 90),
-  bl: (out?: boolean) => (out ? 90 : 270),
-  br: (out?: boolean) => (out ? 0 : 180),
+  techniques: (out?: boolean) => (out ? 180 : 0),
+  tools: (out?: boolean) => (out ? 270 : 90),
+  platforms: (out?: boolean) => (out ? 90 : 270),
+  frameworks: (out?: boolean) => (out ? 0 : 180),
 };
 
 export const Moved = ({
@@ -73,7 +73,7 @@ export const Moved = ({
     viewBox="-16.5 -16.5 33 33"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <circle style={{ fill: '#6b9e78' }} rx="11" cy="0" cx="0" r="11" />
+    <circle style={{ fill: 'currentColor' }} rx="11" cy="0" cx="0" r="11" />
     <text
       x="0"
       y="1"
@@ -88,7 +88,7 @@ export const Moved = ({
     <path
       style={{
         fill: 'none',
-        stroke: '#6b9e78',
+        stroke: 'currentColor',
         strokeWidth: '3px',
         strokeLinecap: 'round',
         rotate: `${rotationMap[quadrant](out)}deg`,
