@@ -10,7 +10,7 @@ export const Radar = () => {
   return (
     <>
       <span>Short press individual blips to cycle their type.</span>
-      <br />
+      &nbsp;&nbsp;&nbsp;
       <span>Click here to clear all blips: </span>
       <button className="fancy-button" onClick={handleOnClickClearAll}>
         Clear all
