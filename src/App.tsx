@@ -1,9 +1,7 @@
-import { Radar } from './components/radar/Radar';
+import { Radar } from '@components/Radar';
 
-export default () => {
-  return (
-    <div className="App">
-      <Radar />
-    </div>
-  );
-};
+export default () => (
+  <div className="App">
+    <Radar />
+  </div>
+);

@@ -1,7 +1,6 @@
-import { Coordinates, UniqueIdentifier } from '@dnd-kit/core/dist/types';
 import useLocalStorageState from 'use-local-storage-state';
-import { QuadrantLabel } from '../Quadrant';
-import { Fresh, Moved, Unchanged } from './Icons';
+import { Coordinates, UniqueIdentifier } from '@dnd-kit/core/dist/types';
+import { BlipType, BLIP_STATUS, QuadrantLabel } from '@types';
 
 interface BlipData {
   id: UniqueIdentifier;
@@ -9,21 +8,6 @@ interface BlipData {
   touched: boolean;
   status: BlipType;
 }
-
-export const BLIP_STATUS = [
-  'unchanged',
-  'fresh',
-  'movedIn',
-  'movedOut',
-] as const;
-type BlipType = typeof BLIP_STATUS[number];
-
-export const BLIP_ICON_MAP: Record<BlipType, Function> = {
-  fresh: Fresh,
-  unchanged: Unchanged,
-  movedIn: Moved,
-  movedOut: Moved,
-};
 
 const newBlip = (id: string) => ({
   id,
@@ -56,5 +40,10 @@ export const useBlips = (key: QuadrantLabel) => {
       })
     );
 
-  return { blips, addBlip, updateBlip };
+  const toggleBlipType = (id: UniqueIdentifier) =>
+    updateBlip(id, (blip) => ({
+      status: BLIP_STATUS[(BLIP_STATUS.indexOf(blip.status) + 1) % 4],
+    }));
+
+  return { blips, addBlip, updateBlip, toggleBlipType };
 };
