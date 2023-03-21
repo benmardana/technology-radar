@@ -158,7 +158,12 @@ button {
   transition-property: color, background-color, border-color;
 }
 
-.fancy-button:hover {
+.fancy-button:disabled {
+  cursor: auto;
+  color: gainsboro;
+}
+
+.fancy-button:not(:disabled):hover {
   background-color: #f3f4f6;
   border-color: #1b1f2326;
   transition-duration: 0.1s;
@@ -185,6 +190,10 @@ button {
   rotate: x 180deg;
 }
 
+.blip {
+  cursor: pointer;
+}
+
 .blip .label {
   position: absolute;
   text-align: center;
@@ -197,6 +206,10 @@ button {
   font-size: 16px;
   color: white;
   font-weight: bold;
+}
+
+.label button {
+  margin-top: 4px;
 }
 
 .blip.unchanged::after {

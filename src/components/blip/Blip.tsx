@@ -1,13 +1,16 @@
+import { renderToStaticMarkup } from 'react-dom/server';
 import { useDraggable } from '@dnd-kit/core';
 import { Coordinates } from '@dnd-kit/core/dist/types';
 import { BlipType, QuadrantLabel } from '@types';
 import { Moved, New, Unchanged } from './Icons';
+import { useMemo } from 'react';
 
 interface BlipProps {
   id: string | number;
   position: Coordinates;
   status: BlipType;
   label: QuadrantLabel;
+  name: string;
   touched?: boolean;
   onClick?: () => void;
 }
@@ -20,10 +23,10 @@ const BLIP_ICON_MAP = {
 };
 
 const initialPositionMap = {
-  techniques: { top: '10%', left: '22%', bottom: 'auto', right: 'auto' },
-  tools: { top: '10%', left: 'auto', bottom: 'auto', right: '22%' },
-  platforms: { top: 'auto', left: '22%', bottom: '10%', right: 'auto' },
-  frameworks: { top: 'auto', left: 'auto', bottom: '10%', right: '22%' },
+  techniques: { top: '17.5%', left: '22%', bottom: 'auto', right: 'auto' },
+  tools: { top: '17.5%', left: 'auto', bottom: 'auto', right: '22%' },
+  platforms: { top: 'auto', left: '22%', bottom: '17.5%', right: 'auto' },
+  frameworks: { top: 'auto', left: 'auto', bottom: '17.5%', right: '22%' },
 };
 
 const colorMap = {
@@ -38,12 +41,14 @@ export const Blip = ({
   position,
   status,
   label,
+  name,
   touched,
   onClick,
 }: BlipProps) => {
-  const { attributes, listeners, setNodeRef, transform } = useDraggable({
-    id,
-  });
+  const { attributes, isDragging, listeners, setNodeRef, transform } =
+    useDraggable({
+      id,
+    });
 
   const liveStyle = transform
     ? {
@@ -70,6 +75,10 @@ export const Blip = ({
         color: colorMap[label],
       }}
       onClick={onClick}
+      data-tooltip-id="tooltip"
+      data-tooltip-html={renderToStaticMarkup(
+        <div data-transform={JSON.stringify(transform)}>{name}</div>
+      )}
       {...listeners}
       {...attributes}
     >

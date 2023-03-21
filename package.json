@@ -13,6 +13,7 @@
     "@dnd-kit/modifiers": "^6.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-tooltip": "^5.10.0",
     "use-local-storage-state": "^18.2.1",
     "vite-tsconfig-paths": "^4.0.7"
   },

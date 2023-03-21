@@ -7,6 +7,7 @@ import {
 } from '@dnd-kit/core';
 import { restrictToParentElement } from '@dnd-kit/modifiers';
 import { QuadrantLabel } from '@types';
+import { useState } from 'react';
 import { Blip, useBlips } from './blip';
 import quadrant from '/quadrant.svg';
 
@@ -17,6 +18,7 @@ const getY = (element: EventTarget) =>
 
 export const Quadrant = ({ label }: { label: QuadrantLabel }) => {
   const { blips, addBlip, updateBlip, toggleBlipType } = useBlips(label);
+  const [newBlipName, setNewBlipName] = useState('');
 
   const handleOnDragEnd = (event: DragEndEvent) => {
     updateBlip(event.active.id, (blip) => ({
@@ -32,6 +34,11 @@ export const Quadrant = ({ label }: { label: QuadrantLabel }) => {
             : getY(event.activatorEvent.target!)) + event.delta.y,
       },
     }));
+  };
+
+  const handleOnClickAddBlip = () => {
+    addBlip(newBlipName);
+    setNewBlipName('');
   };
 
   const sensors = useSensors(
@@ -53,12 +60,22 @@ export const Quadrant = ({ label }: { label: QuadrantLabel }) => {
         <img src={quadrant} alt="" className={`backdrop ${label}`} />
         <div className={`label ${label}`}>
           <h2>{label}</h2>
-          <button className="fancy-button" onClick={addBlip}>
+          <input
+            type="text"
+            placeholder="New blip name"
+            value={newBlipName}
+            onChange={(e) => setNewBlipName(e.target.value)}
+          />
+          <button
+            className="fancy-button"
+            disabled={!newBlipName}
+            onClick={handleOnClickAddBlip}
+          >
             Add blip
           </button>
         </div>
         {blips.length
-          ? blips.map(({ id, position, touched, status }) => (
+          ? blips.map(({ id, position, touched, status, name }) => (
               <Blip
                 key={id}
                 id={id}
@@ -66,6 +83,7 @@ export const Quadrant = ({ label }: { label: QuadrantLabel }) => {
                 position={position}
                 touched={touched}
                 status={status}
+                name={name}
                 onClick={() => toggleBlipType(id)}
               />
             ))

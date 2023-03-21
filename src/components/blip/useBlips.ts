@@ -7,13 +7,15 @@ interface BlipData {
   position: Coordinates;
   touched: boolean;
   status: BlipType;
+  name: string;
 }
 
-const newBlip = (id: string) => ({
+const newBlip = (id: string, name: string) => ({
   id,
   position: { x: 0, y: 0 },
   touched: false,
   status: BLIP_STATUS[0],
+  name,
 });
 
 export const useBlips = (key: QuadrantLabel) => {
@@ -21,8 +23,8 @@ export const useBlips = (key: QuadrantLabel) => {
     defaultValue: [],
   });
 
-  const addBlip = () =>
-    setBlips((blips) => [...blips, newBlip(`${blips.length + 1}`)]);
+  const addBlip = (name: string) =>
+    setBlips((blips) => [...blips, newBlip(`${blips.length + 1}`, name)]);
 
   const updateBlip = (
     id: UniqueIdentifier,
